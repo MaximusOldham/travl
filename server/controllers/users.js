@@ -15,7 +15,16 @@ var show = function(req, res, next){
   });
 };
 
+var create = function(req, res, next){
+  User.create(req.body, function(err, user) {
+    if (err) res.json({message: 'Could not create user'});
+      else res.json(user)
+  })
+}
+
+
 module.exports = {
   index: index,
-  show:  show
+  show:  show,
+  create: create
 };

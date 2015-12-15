@@ -5,11 +5,12 @@ var logger       = require('morgan');
 var bodyParser   = require('body-parser');
 var debug        = require('debug')('app:http');
 var cookieParser = require('cookie-parser');
+var cors         = require('cors');
 
 // Load local libraries.
 var env      = require('./config/environment'),
     mongoose = require('./config/database'),
-    routes   = require('./config/routes');
+    routes   = require('./routes/routes');
 
 // Instantiate a server application.
 var app = express();
@@ -26,7 +27,7 @@ app.locals.title = app.get('title');
 
 // Logging layer.
 app.use(logger('dev'));
-
+app.use(cors());
 // Helper layer (parses the requests, and adds further data).
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -43,7 +44,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(debugReq);
 
 // Defines all of our "dynamic" routes.
-app.use('/', routes);
+app.use('/api', routes);
 
 // Catches all 404 routes.
 app.use(function(req, res, next) {
