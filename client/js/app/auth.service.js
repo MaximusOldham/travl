@@ -33,7 +33,7 @@
       }).then(function(data, status, headers, config) {
         tokenService.set(data.data.token)
         auth.isLoggedIn = true;
-
+        console.log(data);
         return data;
       });
     }

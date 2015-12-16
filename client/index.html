@@ -37,23 +37,25 @@
     </header>
     <main>
       <div class="buttons">
-        <button ng-click="vm.createuser=!vm.createuser" class="pure-button pure-button-primary">Create User</button>
+        <button ng-click="vm.createuser=!vm.login" class="pure-button pure-button-primary">Create User</button>
         <!-- {{ vm.user }} -->
-        <form ng-show="vm.createuser" id="user" class="pure-form center" ng-submit="vm.createUser()">
+        <form ng-if="vm.createuser && !vm.login" id="user" class="pure-form center" ng-submit="vm.createUser()">
           <fieldset class="pure-group center">
             <input type="email"    ng-model="vm.user.email"    class="email" placeholder="user@domain.com">
             <input type="text"     ng-model="vm.user.name"     class="name" placeholder="Ben Dover">
             <input type="password" ng-model="vm.user.password" class="password" placeholder="password">
             <input type="date"     ng-model="vm.user.dob"      class="dob" placeholder="">
+            <a class="pure-button pure-button-primary" ng-click="vm.createuser = false">Cancel</a>
             <button type="submit" class="pure-button pure-button-primary">Submit</button>
           </fieldset>
         </form>
 
-        <button ng-click="vm.login=!vm.login" class="pure-button pure-button-primary">Log In</button>
-        <form ng-show="vm.login" id="token" class="pure-form center" ng-submit="vm.logInUser()">
+        <button ng-click="vm.login=!vm.createuser" class="pure-button pure-button-primary">Log In</button>
+        <form ng-if="vm.login && !vm.createuser" id="token" class="pure-form center" ng-submit="vm.logInUser()">
           <fieldset class="pure-group center">
             <input type="email"    ng-model="vm.auth.email"     ng-disabled="vm.auth.isLoggedIn" class="email" placeholder="user@domain.com">
             <input type="password" ng-model="vm.auth.password"  ng-disabled="vm.auth.isLoggedIn" class="password" placeholder="password">
+            <a class="pure-button pure-button-primary" ng-click="vm.login = false">Cancel</a>
             <button type="submit"  ng-hide="vm.auth.isLoggedIn"                                  class="pure-button pure-button-primary">Submit</button>
             <button type="button"  ng-show="vm.auth.isLoggedIn" ng-click="vm.auth.logOut()"      class="pure-button pure-button-primary">Log Out</button>
           </fieldset>
