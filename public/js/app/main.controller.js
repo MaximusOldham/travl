@@ -5,9 +5,9 @@
     .module("app")
     .controller("MainController", MainController);
 
-  MainController.$inject = ["userDataService", "authService", "$log"];
+  MainController.$inject = ["userDataService", "authService", "$log", "$state"];
 
-  function MainController(userDataService, authService, $log) {
+  function MainController(userDataService, authService, $log, $state) {
     var vm = this;
 
     vm.user = userDataService;
@@ -39,7 +39,9 @@
       vm.auth.logIn()
 
       .then(function(data) {
-        $log.debug("Success:", data)
+        $log.debug("Success:", data);
+
+        $state.go('profile');
 
         return vm.user.currentUserData();
       })
