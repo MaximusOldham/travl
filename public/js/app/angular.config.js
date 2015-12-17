@@ -21,8 +21,8 @@
       .state("profile", {
         url: "/profile",
         templateUrl: "templates/profile.html",
-        controller: "ProfileController",
-        controllerAs: "vm"
+        controller: "ProfileController"
+        // controllerAs: "vm"
       })
       .state("edit", {
         url: "/edit",

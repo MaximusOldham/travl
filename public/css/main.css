@@ -21,12 +21,23 @@ header {
   background-image: url('http://www.human-made.com/wp-content/uploads/2015/01/Lift-off.png');
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center center;
+  background-position: center;
 }
 
 .buttons {
   margin-top: 50px;
   margin-bottom: 75px;
+}
+
+.container-fluid {
+  margin-top: 15px;
+}
+
+.angular-google-map-container {
+ height: 600px;
+ width: 600px;
+ border: solid black;
+ margin: 0 auto;
 }
 
   /*background-image: url('http://dmhdwallpapers.com/wp-content/uploads/2015/02/Travel-the-world-Stock-HD-Wallpaper.jpg');*/

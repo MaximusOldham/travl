@@ -12,7 +12,6 @@
       email:           "",
       name:            "",
       password:        "",
-      dob:             "",
       create:          create,
       clear:           clear,
       currentUserData: currentUserData
@@ -31,7 +30,6 @@
           email:    user.email,
           name:     user.name,
           password: user.password,
-          dob:      user.dob.toISOString()
         })
       });
     }
@@ -42,7 +40,6 @@
       user.email    = "";
       user.name     = "";
       user.password = "";
-      user.dob      = "";
     }
 
     function currentUserData() {

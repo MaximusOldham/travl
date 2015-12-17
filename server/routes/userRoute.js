@@ -11,7 +11,6 @@ app.get('/api/users', usersController.index)
     // validations
     checkUserFields,
     checkPassword,
-    checkDob,
     checkUserExists,
 
     // create new user
@@ -20,7 +19,6 @@ app.get('/api/users', usersController.index)
         email:    req.body.email,
         name:     req.body.name,
         password: req.body.password,
-        dob:      Date.parse(req.body.dob)
       }).then(function(newUser) {
         res.json({
           success: true,
@@ -41,12 +39,11 @@ app.get('/api/users', usersController.index)
     if (
       !req.body.email    ||
       !req.body.name     ||
-      !req.body.password ||
-      !req.body.dob
+      !req.body.password
     ) {
       errorHandler(
         422,
-        'Missing required field: one of email, name, password, or dob.',
+        'Missing required field: one of email, name, or password',
         req, res
       );
     } else {
@@ -66,40 +63,40 @@ app.get('/api/users', usersController.index)
     }
   }
 
-  function checkDob(req, res, next) {
-    var date = moment(req.body.dob, moment.ISO_8601);
-    var eighteen_years_ago =
-      moment().subtract(18, 'years').startOf('day');
+  // function checkDob(req, res, next) {
+  //   var date = moment(req.body.dob, moment.ISO_8601);
+  //   var eighteen_years_ago =
+  //     moment().subtract(18, 'years').startOf('day');
 
-    var valid = date.isValid();
-    var flags = date.parsingFlags();
+  //   var valid = date.isValid();
+  //   var flags = date.parsingFlags();
 
-    // eval(locus)
-    if (!valid && !flags.iso) {
-      errorHandler(
-        422,
-        'dob invalid format: not in ISO 8601. ' +
-        'See https://en.wikipedia.org/wiki/ISO_8601#Dates.',
-        req, res
-      );
-    } else
-    if (!valid && (flags.overflow !== -1)) {
-      errorHandler(
-        422,
-        'dob invalid date part: year, month, or date.',
-        req, res
-      );
-    } else
-    if (date.isAfter(eighteen_years_ago)) {
-      errorHandler(
-        422,
-        'dob invalid: you must be 18 to enter.',
-        req, res
-      );
-    } else {
-      next();
-    }
-  }
+  //   // eval(locus)
+  //   if (!valid && !flags.iso) {
+  //     errorHandler(
+  //       422,
+  //       'dob invalid format: not in ISO 8601. ' +
+  //       'See https://en.wikipedia.org/wiki/ISO_8601#Dates.',
+  //       req, res
+  //     );
+  //   } else
+  //   if (!valid && (flags.overflow !== -1)) {
+  //     errorHandler(
+  //       422,
+  //       'dob invalid date part: year, month, or date.',
+  //       req, res
+  //     );
+  //   } else
+  //   if (date.isAfter(eighteen_years_ago)) {
+  //     errorHandler(
+  //       422,
+  //       'dob invalid: you must be 18 to enter.',
+  //       req, res
+  //     );
+  //   } else {
+  //     next();
+  //   }
+  // }
 
   function checkUserExists(req, res, next) {
     User.find({email: req.body.email}).exec()

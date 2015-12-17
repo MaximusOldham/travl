@@ -14,6 +14,11 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
+  <script src="js/lib/lodash.js"></script>
+  <script src="js/lib/angular.simple.logger.js"></script>
+  <script src="js/lib/angular.google.maps.js"></script>
+
+
 
   <style type="text/css">
     .center {
@@ -37,10 +42,13 @@
 
 <body ng-app="app">
   <div class="container-fluid">
-           <div class="row">
+         <div class="row">
              <div class="col-xs-4 border">
-                 <img class="logoImage" src="" width="50px" height="50px"/></a>
-                 <a id="homepage" ui-sref="home" style="text-decoration: none">TRAVL</a>
+                 <!-- <img class="logoImage" src="" width="50px" height="50px"/></a> -->
+                 <button type="button" ui-sref="home" class="btn btn-default" aria-label="Left Align">
+                  <span class="glyphicon glyphicon-plane" aria-hidden="true"></span>
+                 </button>
+                 <!-- <a id="homepage" ui-sref="home" style="text-decoration: none">TRAVL</a> -->
              </div>
              <div class="col-xs-4 border center">
                  <a id="profile" ui-sref="profile" style="text-decoration: none">My Profile</a>
@@ -48,14 +56,17 @@
                  <a id="add" ui-sref="add" style="text-decoration: none">Add To Map</a>
              </div>
              <div class="col-xs-4 border">
-           </div>
+             </div>
          </div>
+  </div>
 
-  <div class="container center" ng-controller="MainController as vm">
+  <div class="center" ng-controller="MainController as vm">
     <ui-view></ui-view>
   </div> <!-- div.container -->
 
   <script src="js/app/angular.module.js"></script>
+    <script src="js/app/app.config.js"></script>
+
   <script src="js/app/angular.config.js"></script>
   <script src="js/app/token.service.js"></script>
   <script src="js/app/tokenSigning.service.js"></script>

@@ -7,8 +7,15 @@ var userSchema = new mongoose.Schema({
   name:   String,
   email: String,
   password: String,
-  dob: Date
+  ppUrl: String,
+  locations: [pointSchema]
 });
+
+var pointSchema = new mongoose.Schema({
+  user: {type: mongoose.Schema.Types.ObjectId, ref: "User"},
+  lat: Number,
+  lon: Number
+})
 
 userSchema.plugin(require('mongoose-bcrypt'));
 
