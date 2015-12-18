@@ -1,10 +1,28 @@
-<h2>Profile</h2>
+<div id="profilePage">
 
+<div id="welcomeUser">
+  <h2>Welcome {{prof.currentUser.name}}!</h2>
+</div>
+
+<div>
+  <img id="profilePicture" ng-src="{{prof.currentUser.ppUrl}}" alt="Jason Ezra">
+</div>
+
+<div class="map">
 <ui-gmap-google-map center='map.center' zoom='map.zoom'>
-   <ui-gmap-marker coords="marker.coords" options="marker.options" events="marker.events" idkey="marker.id">
-   <!-- <ui-gmap-markers models="markers" coords="'self'" options="'options'" modelsbyref="false"/> -->
+   <ui-gmap-markers coords="marker.coords" options="marker.options" events="marker.events" idkey="marker.id"></ui-gmap-markers>
+   <ui-gmap-markers models="markers" coords="'self'" options="'options'" modelsbyref="false"/>
+</ui-gmap-google-map>
 
- </ui-gmap-google-map>
+<!-- <div id="map_canvas" ng-controller="mainCtrl">
+    <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="options" bounds="map.bounds">
+        <ui-gmap-markers models="randomMarkers" coords="'self'" icon="'icon'">
+        </ui-gmap-markers>
+    </ui-gmap-google-map>
+</div> -->
+
+</div>
+
 
  <!-- <div id="map"></div> -->
   <!-- <script async defer
@@ -148,3 +166,4 @@ rollOverOutlineColor : "#000000"
 </div> -->
 
 <a ui-sref="home"></a>
+</div>

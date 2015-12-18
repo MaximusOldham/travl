@@ -6,7 +6,8 @@ var moment = require('moment'),
 module.exports = function(app, errorHandler) {
 //app.get("/api/users/:id", usersController.show)
 app.get('/api/users', usersController.index)
-  app.post('/api/users',
+app.get('/api/users/:id', usersController.userShow)
+app.post('/api/users',
 
     // validations
     checkUserFields,
@@ -19,6 +20,7 @@ app.get('/api/users', usersController.index)
         email:    req.body.email,
         name:     req.body.name,
         password: req.body.password,
+        ppUrl:    req.body.ppUrl
       }).then(function(newUser) {
         res.json({
           success: true,

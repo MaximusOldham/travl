@@ -21,14 +21,14 @@
       .state("profile", {
         url: "/profile",
         templateUrl: "templates/profile.html",
-        controller: "ProfileController"
-        // controllerAs: "vm"
+        controller: "ProfileController",
+        controllerAs: "prof"
       })
       .state("edit", {
         url: "/edit",
         templateUrl: "templates/edit.html",
-        controller: "EditController",
-        controllerAs: "vm"
+        controller: "ProfileController",
+        controllerAs: "prof"
       })
       .state("add", {
         url: "/add",

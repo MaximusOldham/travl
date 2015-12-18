@@ -1,3 +1,6 @@
+(function() {
+
+
 angular.module("app")
   .controller("AddController", AddController);
 
@@ -7,4 +10,7 @@ function AddController(){
   var vm = this;
 
   vm.test = "yay"
+
 }
+
+})();

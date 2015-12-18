@@ -1,3 +1,4 @@
+<div class="home">
 <header>
   <a ui-sref="home" style="text-decoration: none"><h1>TRAVL</h1></a>
   <h4>The app that shows your map.</h4>
@@ -9,9 +10,10 @@
     <!-- {{ vm.user }} -->
     <form ng-if="vm.createuser && !vm.login" id="user" class="pure-form center" ng-submit="vm.createUser()">
       <fieldset class="pure-group center">
-        <input type="email"    ng-model="vm.user.email"    class="email" placeholder="user@domain.com">
-        <input type="text"     ng-model="vm.user.name"     class="name" placeholder="Ben Dover">
+        <input type="email"    ng-model="vm.user.email"    class="email"    placeholder="user@domain.com">
+        <input type="text"     ng-model="vm.user.name"     class="name"     placeholder="Ben Dover">
         <input type="password" ng-model="vm.user.password" class="password" placeholder="password">
+        <input type="text"     ng-model="vm.user.ppUrl"    class="ppUrl"    placeholder="Url for your smilin' face">
         <a class="pure-button pure-button-primary" ng-click="vm.createuser = false">Cancel</a>
         <button type="submit" class="pure-button pure-button-primary">Submit</button>
       </fieldset>
@@ -33,4 +35,4 @@
   <!-- <pre id="success">{{ vm.successMessage }}</pre> -->
   <!-- <pre id="failure">{{ vm.failureMessage }}</pre> -->
 </main>
-
+</div>

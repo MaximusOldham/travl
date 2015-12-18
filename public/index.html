@@ -6,7 +6,7 @@
 
   <title>Travl</title>
   <meta name="description" content="An introduction to token-based auth.">
-  <link href='https://fonts.googleapis.com/css?family=Changa+One' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Changa+One|Poiret+One|Raleway' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" type="text/css" href="//yui.yahooapis.com/pure/0.6.0/pure-min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <link rel="stylesheet" href="/css/main.css">
@@ -45,15 +45,15 @@
          <div class="row">
              <div class="col-xs-4 border">
                  <!-- <img class="logoImage" src="" width="50px" height="50px"/></a> -->
-                 <button type="button" ui-sref="home" class="btn btn-default" aria-label="Left Align">
+                 <button type="button" ui-sref="home" class="pure-button pure-button-primary" aria-label="Left Align">
                   <span class="glyphicon glyphicon-plane" aria-hidden="true"></span>
                  </button>
                  <!-- <a id="homepage" ui-sref="home" style="text-decoration: none">TRAVL</a> -->
              </div>
              <div class="col-xs-4 border center">
-                 <a id="profile" ui-sref="profile" style="text-decoration: none">My Profile</a>
-                 <a id="edit" ui-sref="edit" style="text-decoration: none">Edit Profile</a>
-                 <a id="add" ui-sref="add" style="text-decoration: none">Add To Map</a>
+                 <button id="profile" ui-sref="profile" class="pure-button pure-button-primary">My Profile</button>
+                 <button id="edit" ui-sref="edit" class="pure-button pure-button-primary">Edit Profile</button>
+                 <button id="add" ui-sref="add" class="pure-button pure-button-primary">Add To Map</button>
              </div>
              <div class="col-xs-4 border">
              </div>
@@ -65,8 +65,7 @@
   </div> <!-- div.container -->
 
   <script src="js/app/angular.module.js"></script>
-    <script src="js/app/app.config.js"></script>
-
+  <script src="js/app/app.config.js"></script>
   <script src="js/app/angular.config.js"></script>
   <script src="js/app/token.service.js"></script>
   <script src="js/app/tokenSigning.service.js"></script>

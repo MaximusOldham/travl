@@ -3,6 +3,12 @@ var mongoose = require('mongoose'),
 
 mongoose.Promise = Promise;
 
+var pointSchema = new mongoose.Schema({
+  user: {type: mongoose.Schema.Types.ObjectId, ref: "User"},
+  lat: Number,
+  lon: Number
+});
+
 var userSchema = new mongoose.Schema({
   name:   String,
   email: String,
@@ -10,12 +16,6 @@ var userSchema = new mongoose.Schema({
   ppUrl: String,
   locations: [pointSchema]
 });
-
-var pointSchema = new mongoose.Schema({
-  user: {type: mongoose.Schema.Types.ObjectId, ref: "User"},
-  lat: Number,
-  lon: Number
-})
 
 userSchema.plugin(require('mongoose-bcrypt'));
 

@@ -1,4 +1,13 @@
+<div id="addPage">
 <h2>Add Places and Pictures to Your Map!</h2>
+<input name="file" file type="file"  id="uploadInput"/>
 
+<div id="map_canvas" ng-controller="mainCtrl">
+    <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="options" bounds="map.bounds">
+        <ui-gmap-markers models="randomMarkers" coords="'self'" icon="'icon'">
+        </ui-gmap-markers>
+    </ui-gmap-google-map>
+</div>
 
 <a ui-sref="add"><h1></h1></a>
+</div>

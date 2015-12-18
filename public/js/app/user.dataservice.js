@@ -5,13 +5,14 @@
     .module("app")
     .factory("userDataService", userDataService);
 
-  userDataService.$inject = ["$log", "$http"];
+  userDataService.$inject = ["$log", "$http", "tokenService"];
 
-  function userDataService($log, $http) {
+  function userDataService($log, $http, tokenService) {
     var user = {
       email:           "",
       name:            "",
       password:        "",
+      ppUrl:           "",
       create:          create,
       clear:           clear,
       currentUserData: currentUserData
@@ -30,6 +31,7 @@
           email:    user.email,
           name:     user.name,
           password: user.password,
+          ppUrl:    user.ppUrl
         })
       });
     }
@@ -40,6 +42,7 @@
       user.email    = "";
       user.name     = "";
       user.password = "";
+      user.ppUrl    = "";
     }
 
     function currentUserData() {
@@ -47,7 +50,8 @@
 
       return $http({
         url:     "http://localhost:3000/api/me",
-        method:  "GET"
+        method:  "GET",
+        headers: {"Authorization": "Bearer " + tokenService.get()}
       });
     }
   }

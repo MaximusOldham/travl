@@ -21,11 +21,21 @@ var create = function(req, res, next){
   })
 }
 
+var userShow = function(req, res, next) {
+  User.findById(req.params.id, function(err, user) {
+    if (err) res.send(err);
+
+    // return the user
+    res.json(user);
+  })
+}
+
 
 module.exports = {
   index: index,
   show:  show,
-  create: create
+  create: create,
+  userShow: userShow
 };
 
 
