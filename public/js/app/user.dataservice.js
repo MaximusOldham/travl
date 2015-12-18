@@ -15,10 +15,20 @@
       ppUrl:           "",
       create:          create,
       clear:           clear,
-      currentUserData: currentUserData
+      userData:        null,
+      currentUserData: currentUserData,
+      saveProfile:     saveProfile
     };
 
     return user;
+
+    function saveProfile(profile) {
+      console.log(JSON.stringify(profile));
+      user.userData = profile;
+      // $http.put('//localhost:3000/api/users', profile).then(function(res) {
+      //   currentUserData = res.data;
+      // });
+    }
 
     function create() {
       $log.debug("Attempting to create:", user);

@@ -31,8 +31,8 @@ app.locals.title = app.get('title');
 app.use(logger('dev'));
 app.use(cors());
 // Helper layer (parses the requests, and adds further data).
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json({strict: false, type: 'application/*+json'}));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(cookieParser('notsosecretnowareyou'));
 

@@ -14,6 +14,7 @@ var userSchema = new mongoose.Schema({
   email: String,
   password: String,
   ppUrl: String,
+  bio: String,
   locations: [pointSchema]
 });
 

@@ -1,10 +1,13 @@
 var jwt  = require('jsonwebtoken'),
-    User = require('../models/user');
+    User = require('../models/user'),
+    usersController = require('../controllers/users');
+
 
 // In order to simplify our process, we will handle the request
 // inline here, instead of passing to controller files.
 module.exports = function(app, errorHandler) {
 
+  app.put('/api/users',     usersController.edit);
   // User creation path:
   app.get('/api/me',
 

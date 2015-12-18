@@ -4,20 +4,26 @@
 angular.module("app")
   .controller("ProfileController", ProfileController);
 
-ProfileController.$inject = ["$scope", "uiGmapGoogleMapApi", "userDataService", "$log"];
+ProfileController.$inject = ["$scope", "uiGmapGoogleMapApi", "userDataService", "$log", "$state"];
 
-function ProfileController($scope, uiGmapGoogleMapApi, userDataService, $log){
+function ProfileController($scope, uiGmapGoogleMapApi, userDataService, $log, $state){
   var vm = this;
 
-  vm.test = "yay";
-
-  if (vm.currentUser === undefined) {
+  vm.userProfile = {};
+  if (userDataService.userData == null) {
     userDataService.currentUserData().then(function(res) {
-      vm.currentUser = res.data.data;
-      $log.log("Is this me?", vm.currentUser);
-    })
+      vm.userProfile.currentUser = res.data.data;
+      userDataService.userData = res.data.data;
+      $log.log("Is this me?", vm.userProfile.currentUser);
+    });
+  } else {
+    vm.userProfile.currentUser = userDataService.userData;
   }
 
+  vm.saveProfile = function() {
+    userDataService.saveProfile(vm.userProfile.currentUser);
+    $state.go('profile');
+  };
 
   $scope.map = {
      center: {

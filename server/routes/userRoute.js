@@ -5,7 +5,7 @@ var moment = require('moment'),
 // inline here, instead of passing to controller files.
 module.exports = function(app, errorHandler) {
 //app.get("/api/users/:id", usersController.show)
-app.get('/api/users', usersController.index)
+app.get('/api/users', usersController.index);
 app.get('/api/users/:id', usersController.userShow)
 app.post('/api/users',
 

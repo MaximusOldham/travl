@@ -1,11 +1,12 @@
 <div id="profilePage">
 
 <div id="welcomeUser">
-  <h2>Welcome {{prof.currentUser.name}}!</h2>
+  <h2>Welcome {{prof.userProfile.currentUser.name}}!</h2>
+  <p>{{prof.userProfile.currentUser.bio}}</p>
 </div>
 
 <div>
-  <img id="profilePicture" ng-src="{{prof.currentUser.ppUrl}}" alt="Jason Ezra">
+  <img id="profilePicture" ng-src="{{prof.userProfile.currentUser.ppUrl}}" alt="Jason Ezra">
 </div>
 
 <div class="map">

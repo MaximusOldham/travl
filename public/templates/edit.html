@@ -2,12 +2,12 @@
 
 <h2>Edit Your Profile Information</h2>
 <div id="editbuttons">
-<input placeholder="Change Name" ng-model="prof.currentUser.name"> <br>
-<input placeholder="Change Email" ng-model="prof.currentUser.email"> <br>
-<input placeholder="Change Password" ng-model="prof.currentUser.password"> <br>
-<input placeholder="Change Profile Picture" ng-model="prof.currentUser.ppUrl"> <br>
-<input placeholder="About Me (100 chacter max.)" ng-model="prof.currentUser.bio"> <br>
-<button type="submit" class="pure-button pure-button-primary">Submit</button>
+<input placeholder="Change Name" ng-model="prof.userProfile.currentUser.name"> <br>
+<input placeholder="Change Email" ng-model="prof.userProfile.currentUser.email"> <br>
+<input placeholder="Change Password" ng-model="prof.userProfile.currentUser.password"> <br>
+<input placeholder="Change Profile Picture" ng-model="prof.userProfile.currentUser.ppUrl"> <br>
+<input placeholder="About Me (100 chacter max.)" ng-model="prof.userProfile.currentUser.bio"> <br>
+<button ng-click="prof.saveProfile()" class="pure-button pure-button-primary">Submit</button>
 </div>
 
   <a ui-sref="edit"><h1></h1></a>

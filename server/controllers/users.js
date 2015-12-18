@@ -14,6 +14,19 @@ var show = function(req, res, next){
   });
 };
 
+var edit = function(req, res, next){
+
+console.log('body', req.body);
+
+  User.findById(req.body._id, function(error, user){
+    if (error) res.json({message: 'Could not find user because ' + error});
+    // user.set(req.body);
+    user.save(function(err) {
+      res.json(user);
+    });
+  });
+};
+
 var create = function(req, res, next){
   User.create(req.body, function(err, user) {
     if (err) res.json({message: 'Could not create user'});
@@ -34,6 +47,7 @@ var userShow = function(req, res, next) {
 module.exports = {
   index: index,
   show:  show,
+  edit:  edit,
   create: create,
   userShow: userShow
 };
