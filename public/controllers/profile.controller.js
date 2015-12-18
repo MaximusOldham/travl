@@ -25,22 +25,22 @@ function ProfileController($scope, uiGmapGoogleMapApi, userDataService, $log, $s
     $state.go('profile');
   };
 
-  $scope.map = {
-     center: {
-       latitude:   34.04,
-       longitude: -118.25
-     },
-     zoom: 12
-   };
+//**   $scope.map = {
+//      center: {
+//        latitude:   34.04,
+//        longitude: -118.25
+//      },
+//      zoom: 12
+//    };
 
-   $scope.markers = {
-   id: 0,
-   coords: {
-       latitude: 34.05,
-       longitude: -118.2
-   },
-   options: { draggable: false },
-   };
+//    $scope.markers = {
+//    id: 0,
+//    coords: {
+//        latitude: 34.05,
+//        longitude: -118.2
+//    },
+//    options: { draggable: false },
+//    };
+// }
 }
-
 })();
